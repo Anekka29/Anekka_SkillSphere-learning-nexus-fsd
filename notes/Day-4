@@ -1,0 +1,336 @@
+Day 4 Notes
+# API, Postman & Basic DBMS
+
+## Learning Objectives
+
+- Understand what an API Endpoint is.
+- Learn how to test APIs using Postman.
+- Understand HTTP Request Methods.
+- Learn basic DBMS concepts.
+- Build a simple Java API and test it using Postman.
+
+---
+
+# What is an API?
+
+API (Application Programming Interface) is a bridge that allows two applications to communicate with each other.
+
+Example:
+
+- Mobile App ↔ API ↔ Database
+- React Application ↔ Spring Boot API ↔ MySQL
+
+The client sends a request to the API, and the API returns the appropriate response.
+
+---
+
+# What is an API Endpoint?
+
+An **API Endpoint** is a specific URL where an API can be accessed.
+
+Example:
+
+```
+http://localhost:8080/api/users
+```
+
+Here,
+
+- `http://localhost:8080` → Server
+- `/api/users` → Endpoint
+
+Each endpoint performs a specific task such as retrieving, creating, updating, or deleting data.
+
+---
+
+# What is Postman?
+
+Postman is a popular tool used for **API Development and Testing**.
+
+It allows developers to:
+
+- Send HTTP requests
+- Test APIs without creating a frontend
+- View request and response data
+- Test authentication
+- Debug APIs
+
+---
+
+# Installing Postman
+
+1. Download Postman.
+2. Sign up using an Email ID or Continue with Google.
+3. Create a Workspace.
+4. Start testing APIs.
+
+---
+
+# HTTP Methods
+
+HTTP methods define the action to perform on a resource.
+
+## 1. GET
+
+Retrieves data from the server.
+
+Example:
+
+```
+GET /students
+```
+
+Use Case:
+
+- View all students
+- Get user profile
+- Retrieve product list
+
+---
+
+## 2. POST
+
+Creates new data on the server.
+
+Example:
+
+```
+POST /students
+```
+
+Use Case:
+
+- Add a new student
+- Register a new user
+
+---
+
+## 3. PUT
+
+Updates an entire existing resource.
+
+Example:
+
+```
+PUT /students/1
+```
+
+Use Case:
+
+- Update all student details
+
+---
+
+## 4. PATCH
+
+Updates only specific fields of a resource.
+
+Example:
+
+```
+PATCH /students/1
+```
+
+Use Case:
+
+- Update only the student's email or phone number
+
+---
+
+## 5. DELETE
+
+Deletes an existing resource.
+
+Example:
+
+```
+DELETE /students/1
+```
+
+Use Case:
+
+- Remove a student record
+- Delete a product
+
+---
+
+# HTTP Methods Summary
+
+| Method | Purpose |
+|---------|---------|
+| GET | Retrieve data |
+| POST | Create new data |
+| PUT | Update entire resource |
+| PATCH | Update partial resource |
+| DELETE | Delete data |
+
+---
+
+# Testing APIs Using Postman
+
+General Steps:
+
+1. Open Postman.
+2. Select the HTTP method (GET, POST, PUT, PATCH, DELETE).
+3. Enter the API URL.
+4. Add headers or request body if required.
+5. Click **Send**.
+6. View the server response.
+
+---
+
+# Example
+
+### GET Request
+
+```
+GET http://localhost:8080/api/users
+```
+
+Response:
+
+```json
+[
+    {
+        "id":1,
+        "name":"John"
+    }
+]
+```
+
+---
+
+### POST Request
+
+Request Body
+
+```json
+{
+    "name":"Anekka",
+    "age":20
+}
+```
+
+Response
+
+```json
+{
+    "message":"Student Added Successfully"
+}
+```
+
+---
+
+# Basic DBMS Concepts
+
+## What is DBMS?
+
+DBMS (Database Management System) is software used to store, manage, and retrieve data efficiently.
+
+Examples:
+
+- MySQL
+- PostgreSQL
+- Oracle
+- SQL Server
+
+---
+
+# Creating a Table
+
+A table stores data in rows and columns.
+
+Example:
+
+```sql
+CREATE TABLE Student (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    age INT
+);
+```
+
+---
+
+# CASE Statement in SQL
+
+The **CASE** statement is used for conditional logic in SQL.
+
+Example:
+
+```sql
+SELECT
+name,
+CASE
+    WHEN marks >= 50 THEN 'Pass'
+    ELSE 'Fail'
+END AS Result
+FROM Student;
+```
+
+---
+
+# SQL Practice
+
+Practice writing queries for:
+
+- CREATE TABLE
+- INSERT
+- SELECT
+- UPDATE
+- DELETE
+- CASE statements
+
+---
+
+# Simple Java API
+
+Create a simple REST API using Java (Spring Boot).
+
+Example Endpoint:
+
+```
+GET /hello
+```
+
+Response:
+
+```text
+Hello World
+```
+
+Test this endpoint using Postman.
+
+---
+
+# Workflow
+
+```
+Client
+   │
+   ▼
+Postman
+   │
+   ▼
+Spring Boot API
+   │
+   ▼
+Database (MySQL)
+```
+
+---
+
+# Day 4 Summary
+
+- API enables communication between applications.
+- API Endpoint is the URL used to access a specific API.
+- Postman is used to test REST APIs.
+- Common HTTP methods:
+  - GET
+  - POST
+  - PUT
+  - PATCH
+  - DELETE
+- Learned basic DBMS concepts.
+- Practiced SQL table creation and CASE statements.
+- Built and tested a simple Java API using Postman.
