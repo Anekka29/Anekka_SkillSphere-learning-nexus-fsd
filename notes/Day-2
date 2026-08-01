@@ -1,0 +1,258 @@
+ Day 2 Notes
+# JWT (JSON Web Token)
+
+## Learning Objective
+Understand what JWT is, why it is used, how it works, and its structure in Spring Boot applications.
+
+---
+
+# What is JWT?
+
+JWT (JSON Web Token) is a compact, URL-safe token used for **Authentication** and **Authorization**.
+
+After a user logs in successfully, the server generates a JWT and sends it to the client. The client stores this token and sends it with every future request instead of sending the username and password repeatedly.
+
+---
+
+# Why JWT is Needed
+
+Without JWT, the server would require authentication for every request.
+
+### Without JWT
+
+- Open Home Page → Enter Username & Password
+- Open Profile → Enter Username & Password
+- Open Orders → Enter Username & Password
+- Open Cart → Enter Username & Password
+
+This approach is inefficient and provides a poor user experience.
+
+### With JWT
+
+1. User logs in once.
+2. Server validates credentials.
+3. Server generates a JWT.
+4. Client stores the JWT.
+5. Client sends the JWT with every request.
+6. Server verifies the JWT before processing the request.
+
+**Benefits**
+- Login only once
+- Stateless authentication
+- Faster request processing
+- Improved user experience
+
+---
+
+# JWT Structure
+
+A JWT is made up of **three parts** separated by dots (`.`).
+
+```
+Header.Payload.Signature
+```
+
+Example:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+eyJzdWIiOiIxMDEiLCJyb2xlIjoiVVNFUiJ9.
+SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+```
+
+---
+
+# Part 1 - Header
+
+The Header contains metadata about the token.
+
+It specifies:
+
+- Token type (`JWT`)
+- Signing algorithm (e.g., HS256)
+
+Example:
+
+```json
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+```
+
+---
+
+# Part 2 - Payload
+
+The Payload contains **claims** (user information).
+
+Common claims include:
+
+- User ID
+- Username
+- Email
+- Role
+- Expiration Time (`exp`)
+
+Example:
+
+```json
+{
+  "id": 101,
+  "username": "john",
+  "role": "USER"
+}
+```
+
+> **Note:** Payload is encoded but **not encrypted**. Never store passwords or confidential data in the payload.
+
+---
+
+# Part 3 - Signature
+
+The Signature verifies that the JWT has not been modified.
+
+It is generated using:
+
+- Header
+- Payload
+- Secret Key
+- Signing Algorithm
+
+Example:
+
+Original Payload
+
+```json
+{
+  "role": "USER"
+}
+```
+
+If someone changes it to
+
+```json
+{
+  "role": "ADMIN"
+}
+```
+
+The signature becomes invalid.
+
+Result:
+
+- Server detects tampering.
+- Access is denied.
+
+---
+
+# JWT Authentication Flow
+
+```
++----------------+
+|     Client     |
++----------------+
+        |
+        | Login Request
+        | Username + Password
+        v
++----------------+
+|     Server     |
++----------------+
+        |
+        | Verify Credentials
+        |
+        | Generate JWT
+        v
++----------------+
+| JWT Token Sent |
++----------------+
+        |
+        | Store Token
+        |
+Future Requests
+        |
+Authorization: Bearer <JWT>
+        |
+        v
++----------------+
+|     Server     |
++----------------+
+        |
+        | Verify Signature
+        |
+   +-----------+
+   |           |
+Valid        Invalid
+   |           |
+Access      Reject
+Granted     Request
+```
+
+---
+
+# Advantages of JWT
+
+- Stateless authentication
+- User logs in only once
+- Faster than session-based authentication
+- Easy to use with REST APIs
+- Secure token verification
+- Suitable for distributed applications
+- Works well with Spring Boot, React, Angular, and mobile applications
+
+---
+
+# Limitations of JWT
+
+- Difficult to revoke before expiration
+- Larger payload increases token size
+- Secret key must be protected
+- Payload is readable after decoding
+
+---
+
+# JWT in Spring Boot
+
+JWT is commonly used with **Spring Security**.
+
+Typical flow:
+
+1. User sends login credentials.
+2. Spring Security authenticates the user.
+3. JWT is generated.
+4. Client stores the JWT.
+5. Every request includes:
+
+```
+Authorization: Bearer <JWT Token>
+```
+
+6. A JWT Filter validates the token.
+7. If valid, Spring Security grants access to protected APIs.
+
+---
+
+# Key Points
+
+- JWT = JSON Web Token
+- Used for Authentication and Authorization
+- Login once, access multiple resources
+- Consists of Header, Payload, and Signature
+- Signature prevents token tampering
+- Payload stores user claims
+- Header stores algorithm information
+- Token is sent in the HTTP Authorization header
+
+---
+
+
+# Summary
+
+- JWT stands for **JSON Web Token**.
+- It enables secure, stateless authentication.
+- Users log in once and receive a token.
+- The token is included in every subsequent request.
+- JWT consists of **Header**, **Payload**, and **Signature**.
+- The Signature ensures token integrity and prevents tampering.
+- JWT is widely used in Spring Boot REST APIs with Spring Security.
