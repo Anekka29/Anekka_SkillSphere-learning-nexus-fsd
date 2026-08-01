@@ -1,0 +1,384 @@
+Day 3 Notes
+# Git Commands
+
+## 1. `git pull`
+
+Downloads the latest changes from the remote repository and merges them into the current branch.
+
+**Syntax**
+```bash
+git pull origin main
+```
+
+**Use Case**
+- Update your local repository with the latest code from GitHub.
+
+---
+
+# 2. `git push`
+
+Uploads local commits to the remote repository.
+
+**Syntax**
+```bash
+git push origin main
+```
+
+**Use Case**
+- Share your committed changes with others.
+
+---
+
+# 3. `git fetch`
+
+Downloads the latest updates from the remote repository without merging them.
+
+**Syntax**
+```bash
+git fetch
+```
+
+**Use Case**
+- Check remote changes before merging them into your branch.
+
+---
+
+# 4. `git branch -d`
+
+Deletes a local branch that has already been merged.
+
+**Syntax**
+```bash
+git branch -d branch_name
+```
+
+---
+
+# 5. `git branch`
+
+Lists all local branches or creates a new branch.
+
+**List branches**
+```bash
+git branch
+```
+
+**Create a branch**
+```bash
+git branch feature-branch
+```
+
+---
+
+# 6. `git merge`
+
+Combines changes from one branch into another.
+
+**Syntax**
+```bash
+git merge feature-branch
+```
+
+**Use Case**
+- Merge completed feature work into the main branch.
+
+---
+
+# 7. `git stash`
+
+Temporarily saves uncommitted changes without committing them.
+
+**Syntax**
+```bash
+git stash
+```
+
+**Restore**
+```bash
+git stash pop
+```
+
+**Use Case**
+- Switch branches without losing current work.
+
+---
+
+# 8. `git init`
+
+Creates a new Git repository in the current folder.
+
+**Syntax**
+```bash
+git init
+```
+
+---
+
+# 9. `git checkout`
+
+Switches between branches or restores files.
+
+**Syntax**
+```bash
+git checkout branch_name
+```
+
+**Example**
+```bash
+git checkout main
+```
+
+---
+
+# 10. `git config`
+
+Configures Git settings like username and email.
+
+**Set username**
+```bash
+git config --global user.name "Your Name"
+```
+
+**Set email**
+```bash
+git config --global user.email "your@email.com"
+```
+
+**View configuration**
+```bash
+git config --list
+```
+
+---
+
+# 11. `git revert`
+
+Creates a new commit that undoes the changes of a previous commit.
+
+**Syntax**
+```bash
+git revert <commit_id>
+```
+
+**Use Case**
+- Safely undo a commit without rewriting history.
+
+---
+
+# 12. `git add`
+
+Adds files to the staging area.
+
+**Add one file**
+```bash
+git add file.txt
+```
+
+**Add all files**
+```bash
+git add .
+```
+
+---
+
+# 13. `git commit`
+
+Saves staged changes to the local repository.
+
+**Syntax**
+```bash
+git commit -m "Commit message"
+```
+
+---
+
+# 14. `git reset`
+
+Moves the current branch to a previous commit.
+
+**Syntax**
+```bash
+git reset <commit_id>
+```
+
+---
+
+# 15. `git reset --soft` and `git reset --hard`
+
+## `git reset --soft`
+
+Moves to a previous commit but keeps changes staged.
+
+```bash
+git reset --soft HEAD~1
+```
+
+**Result**
+- Commit removed
+- Changes remain staged
+
+---
+
+## `git reset --hard`
+
+Moves to a previous commit and permanently deletes all uncommitted changes.
+
+```bash
+git reset --hard HEAD~1
+```
+
+**Result**
+- Commit removed
+- Working directory reset
+- Changes lost permanently
+
+> **Warning:** Use `--hard` carefully because deleted changes cannot be recovered easily.
+
+---
+
+# 16. `git log`
+
+Displays the commit history.
+
+**Syntax**
+```bash
+git log
+```
+
+**Short version**
+```bash
+git log --oneline
+```
+
+---
+
+# 17. `git status`
+
+Shows the current state of the working directory and staging area.
+
+It displays:
+- Modified files
+- Staged files
+- Untracked files
+- Current branch
+
+**Syntax**
+```bash
+git status
+```
+
+---
+
+# 18. `git switch`
+
+Switches between branches.
+
+**Syntax**
+```bash
+git switch branch_name
+```
+
+**Create and switch**
+```bash
+git switch -c new_branch
+```
+
+---
+
+# 19. `git status`
+
+Displays the current status of the repository.
+
+It helps identify:
+- Files waiting to be committed
+- Untracked files
+- Changes not staged
+
+**Syntax**
+```bash
+git status
+```
+
+> **Note:** This is the same command as Point 17.
+
+---
+
+# 20. `git diff`
+
+Shows the differences between file versions.
+
+**Syntax**
+```bash
+git diff
+```
+
+**Use Case**
+- View changes before committing.
+
+---
+
+# 21. `git cherry-pick`
+
+Applies a specific commit from one branch to another.
+
+**Syntax**
+```bash
+git cherry-pick <commit_id>
+```
+
+**Use Case**
+- Copy only one required commit without merging the entire branch.
+
+---
+
+# 22. `git clone`
+
+Creates a local copy of a remote repository.
+
+**Syntax**
+```bash
+git clone https://github.com/username/repository.git
+```
+
+---
+
+# 23. `git rebase`
+
+Reapplies commits from one branch onto another to maintain a cleaner commit history.
+
+**Syntax**
+```bash
+git rebase main
+```
+
+**Use Case**
+- Update a feature branch with the latest changes from the main branch while keeping a linear history.
+
+---
+
+# Summary of Git Commands
+
+| Command | Purpose |
+|---------|---------|
+| `git init` | Initialize a Git repository |
+| `git clone` | Copy a remote repository |
+| `git add` | Stage changes |
+| `git commit` | Save staged changes |
+| `git status` | Show repository status |
+| `git log` | View commit history |
+| `git diff` | Show file differences |
+| `git pull` | Fetch and merge remote changes |
+| `git push` | Upload local commits |
+| `git fetch` | Download remote changes without merging |
+| `git branch` | Create or list branches |
+| `git branch -d` | Delete a local branch |
+| `git checkout` | Switch branches (older command) |
+| `git switch` | Switch branches (recommended) |
+| `git merge` | Merge branches |
+| `git stash` | Save uncommitted changes temporarily |
+| `git reset` | Move to a previous commit |
+| `git reset --soft` | Remove commit, keep staged changes |
+| `git reset --hard` | Remove commit and discard changes |
+| `git revert` | Undo a commit safely by creating a new commit |
+| `git cherry-pick` | Apply a specific commit |
+| `git rebase` | Reapply commits for a cleaner history |
