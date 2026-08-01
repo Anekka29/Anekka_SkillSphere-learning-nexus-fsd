@@ -1,0 +1,413 @@
+Day 5 Notes
+# Software Development Life Cycle (SDLC)
+
+## Learning Objectives
+
+- Understand the Software Development Life Cycle (SDLC)
+- Learn the six phases of SDLC
+- Understand Software Requirement Specification (SRS)
+- Learn different server environments
+- Understand the roles of Development, Testing, HR, Product Manager, and Project Manager
+- Compare Waterfall and Agile methodologies
+- Learn the basics of Scrum
+
+---
+
+# What is SDLC?
+
+Software Development Life Cycle (SDLC) is a structured process followed to design, develop, test, deploy, and maintain software applications.
+
+The main goal of SDLC is to build high-quality software that meets customer requirements while minimizing cost and development time.
+
+---
+
+# Phases of SDLC
+
+## 1. Requirement Analysis
+
+The first phase where business requirements are collected from the client.
+
+Activities:
+
+- Understand client needs
+- Identify project scope
+- Gather functional and non-functional requirements
+- Discuss feasibility
+
+Output:
+
+- Software Requirement Specification (SRS)
+
+---
+
+## 2. System / Functional Design
+
+In this phase, developers and architects design the software based on the requirements.
+
+Activities:
+
+- System architecture
+- Database design
+- API design
+- UI/UX design
+- Technology selection
+
+Output:
+
+- Design Documents
+
+---
+
+## 3. Development Phase
+
+Developers start coding according to the design documents.
+
+Activities:
+
+- Write application code
+- Implement business logic
+- Create APIs
+- Connect with databases
+
+Developers also perform basic testing in their local environment before sending the application for testing.
+
+---
+
+## 4. Testing Phase
+
+The Quality Assurance (QA) team verifies whether the application works correctly.
+
+Testing includes:
+
+- Functional Testing
+- Integration Testing
+- Regression Testing
+- Performance Testing
+- Bug Verification
+
+Testers prepare:
+
+- Test Cases
+- Test Reports
+
+If bugs are found, they are reported to developers for fixing.
+
+---
+
+## 5. Deployment Phase
+
+Once testing is completed successfully, the application is deployed to the production server.
+
+Activities:
+
+- Deploy application
+- Configure servers
+- Release software to users
+
+Users can now access the application.
+
+---
+
+## 6. Maintenance Phase
+
+After deployment, the software continues to be monitored and improved.
+
+Activities:
+
+- Fix bugs
+- Improve performance
+- Add new features
+- Security updates
+
+---
+
+# Software Requirement Specification (SRS)
+
+SRS (Software Requirement Specification) is a document that contains all the project requirements collected from the client.
+
+It includes:
+
+- Functional requirements
+- Non-functional requirements
+- System features
+- Constraints
+- Project scope
+
+The SRS acts as the foundation for development and testing.
+
+---
+
+# Design Document
+
+After understanding the requirements, developers prepare technical design documents.
+
+The design document generally contains:
+
+- Technology Stack
+- Database Design
+- API Design
+- System Architecture
+- Project Structure
+
+---
+
+# Development and Testing Flow
+
+```
+Client
+      │
+      ▼
+Requirement Analysis
+      │
+      ▼
+SRS Document
+      │
+      ▼
+System Design
+      │
+      ▼
+Development
+      │
+      ▼
+Local Testing
+      │
+      ▼
+Quality Assurance (QA)
+      │
+      ▼
+Production Deployment
+      │
+      ▼
+Users
+```
+
+---
+
+# Server Environments
+
+Software is usually deployed in different environments before reaching users.
+
+## 1. Development Server
+
+Used by developers.
+
+Purpose:
+
+- Write code
+- Test new features
+- Fix bugs
+
+---
+
+## 2. QA (Quality Assurance) Server
+
+Used by testers.
+
+Purpose:
+
+- Execute test cases
+- Verify functionality
+- Report bugs
+
+---
+
+## 3. Production Server
+
+Used by end users.
+
+Purpose:
+
+- Live application
+- Accessible to customers
+
+---
+
+# Role of Testers
+
+Testers are responsible for ensuring software quality.
+
+Responsibilities:
+
+- Prepare test cases
+- Execute testing
+- Report defects
+- Verify bug fixes
+- Approve software for deployment
+
+---
+
+# HR Team Responsibilities
+
+Human Resources (HR) manages employee-related activities.
+
+Responsibilities:
+
+- Recruitment
+- Interviews
+- Salary discussions
+- Employee onboarding
+- Company policies
+- Performance management
+
+---
+
+# IT Team Responsibilities
+
+The IT team manages the organization's technical infrastructure.
+
+Responsibilities:
+
+- Database management
+- Server management
+- Network support
+- User access management
+- Internal system maintenance
+
+---
+
+# Product Manager
+
+The Product Manager focuses on **what should be built**.
+
+Responsibilities:
+
+- Define product vision
+- Create product roadmap
+- Gather customer requirements
+- Prioritize features
+- Work closely with stakeholders
+
+---
+
+# Project Manager
+
+The Project Manager focuses on **how and when the project will be delivered**.
+
+Responsibilities:
+
+- Project planning
+- Timeline management
+- Resource allocation
+- Team coordination
+- Risk management
+- Ensure timely delivery
+
+---
+
+# Software Development Models
+
+## 1. Waterfall Model
+
+The Waterfall Model is a sequential software development model where each phase is completed before moving to the next.
+
+Flow:
+
+```
+Requirements
+      ↓
+Design
+      ↓
+Development
+      ↓
+Testing
+      ↓
+Deployment
+      ↓
+Maintenance
+```
+
+### Advantages
+
+- Simple and easy to understand
+- Well-defined phases
+- Easy to manage
+- Suitable for projects with fixed requirements
+
+### Disadvantages
+
+- Difficult to change requirements
+- Inflexible
+- Testing happens late
+- Not suitable for rapidly changing projects
+
+---
+
+## 2. Agile Model
+
+Agile is an iterative and incremental software development methodology.
+
+Development happens in small iterations called **Sprints**.
+
+### Characteristics
+
+- Incremental development
+- Flexibility
+- Continuous feedback
+- Frequent releases
+- Customer collaboration
+
+### Advantages
+
+- Quick delivery
+- Faster feedback
+- Easier to handle changing requirements
+- Improved collaboration
+- Better customer satisfaction
+
+### Disadvantages
+
+- Requires active client involvement
+- Frequent meetings
+- Difficult to estimate cost and timeline
+- Documentation may be lighter
+
+---
+
+# Scrum
+
+Scrum is the most popular Agile framework.
+
+Work is divided into short iterations called **Sprints**.
+
+A Sprint usually lasts:
+
+- 1 to 4 weeks
+
+At the end of every Sprint:
+
+- A working product increment is delivered.
+- Feedback is collected.
+- Improvements are planned for the next Sprint.
+
+---
+
+# Waterfall vs Agile
+
+| Waterfall | Agile |
+|------------|--------|
+| Sequential development | Iterative development |
+| Fixed requirements | Changing requirements are accepted |
+| Less customer involvement | Continuous customer involvement |
+| Testing at the end | Continuous testing |
+| Slower delivery | Faster delivery |
+| Less flexible | Highly flexible |
+
+---
+
+# Day 5 Summary
+
+- SDLC consists of six phases:
+  1. Requirement Analysis
+  2. System Design
+  3. Development
+  4. Testing
+  5. Deployment
+  6. Maintenance
+- SRS documents capture all client requirements.
+- Developers build the application and perform local testing.
+- QA testers verify functionality before deployment.
+- Applications typically move through Development, QA, and Production servers.
+- HR manages recruitment and employees, while the IT team manages technical infrastructure.
+- Product Managers define the product vision; Project Managers manage execution and delivery.
+- Waterfall follows a sequential approach, while Agile uses iterative development with Sprints.
+- Scrum is a widely used Agile framework that delivers software in small, incremental releases.
