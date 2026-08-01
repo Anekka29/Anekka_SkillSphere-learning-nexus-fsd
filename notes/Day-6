@@ -1,0 +1,331 @@
+Day 6 Notes
+# SQL (Structured Query Language)
+
+## Learning Objectives
+
+- Understand SQL and its purpose
+- Learn SQL operators
+- Write queries using AND, OR, and NOT
+- Learn pattern matching using LIKE
+- Understand UNION and UNION ALL
+- Learn filtering and grouping
+- Understand INNER JOIN
+
+---
+
+# What is SQL?
+
+SQL (Structured Query Language) is the standard language used to communicate with relational databases.
+
+Using SQL, we can:
+
+- Create databases and tables
+- Insert records
+- Retrieve data
+- Update data
+- Delete data
+- Manage relationships between tables
+
+Popular SQL Databases:
+
+- MySQL
+- PostgreSQL
+- Oracle
+- SQL Server
+
+---
+
+# SQL Operators
+
+Logical operators are used to combine multiple conditions in a query.
+
+## 1. AND Operator
+
+Returns records only if **all conditions are true**.
+
+### Syntax
+
+```sql
+SELECT *
+FROM Employee
+WHERE Department = 'IT'
+AND Salary > 50000;
+```
+
+**Example**
+
+Retrieve employees who belong to the IT department **and** have a salary greater than ₹50,000.
+
+---
+
+## 2. OR Operator
+
+Returns records if **at least one condition is true**.
+
+### Syntax
+
+```sql
+SELECT *
+FROM Employee
+WHERE City = 'Chennai'
+OR City = 'Hyderabad';
+```
+
+---
+
+## 3. NOT Operator
+
+Returns records that do **not** satisfy the given condition.
+
+### Syntax
+
+```sql
+SELECT *
+FROM Employee
+WHERE NOT Department = 'HR';
+```
+
+---
+
+# Combining Multiple Conditions
+
+Multiple logical operators can be combined using parentheses.
+
+### Example
+
+```sql
+SELECT *
+FROM Employee
+WHERE (Department = 'IT'
+AND Salary > 50000)
+AND
+(City = 'Chennai'
+OR City = 'Hyderabad');
+```
+
+This query returns employees who:
+
+- Work in the IT department
+- Earn more than ₹50,000
+- Live in either Chennai or Hyderabad
+
+---
+
+# UNION
+
+The **UNION** operator combines the results of two or more SELECT statements.
+
+It **removes duplicate records**.
+
+### Syntax
+
+```sql
+SELECT Name FROM Employee
+UNION
+SELECT Name FROM Manager;
+```
+
+---
+
+# UNION ALL
+
+The **UNION ALL** operator combines results but **keeps duplicate records**.
+
+### Syntax
+
+```sql
+SELECT Name FROM Employee
+UNION ALL
+SELECT Name FROM Manager;
+```
+
+---
+
+# Difference Between UNION and UNION ALL
+
+| UNION | UNION ALL |
+|--------|-----------|
+| Removes duplicate records | Keeps duplicate records |
+| Slightly slower | Faster |
+| Returns unique rows | Returns all rows |
+
+---
+
+# LIKE Operator
+
+The **LIKE** operator is used for pattern matching.
+
+---
+
+## Wildcard `_`
+
+Represents **exactly one character**.
+
+### Example
+
+```sql
+SELECT *
+FROM Employee
+WHERE Name LIKE '_a';
+```
+
+Matches names like:
+
+- Raj
+- Jay
+
+(Second character is `a`.)
+
+---
+
+## Wildcard `%`
+
+Represents **zero or more characters**.
+
+### Example
+
+```sql
+SELECT *
+FROM Employee
+WHERE Name LIKE '%a';
+```
+
+Matches names ending with **a**.
+
+Example:
+
+- Anitha
+- Priya
+- Kavitha
+
+---
+
+# WHERE Clause
+
+The **WHERE** clause filters rows based on specified conditions.
+
+### Example
+
+```sql
+SELECT *
+FROM Employee
+WHERE Salary > 50000;
+```
+
+---
+
+# GROUP BY
+
+The **GROUP BY** clause groups rows with the same values.
+
+### Example
+
+```sql
+SELECT Department,
+COUNT(*)
+FROM Employee
+GROUP BY Department;
+```
+
+This displays the number of employees in each department.
+
+---
+
+# HAVING Clause
+
+The **HAVING** clause filters grouped data.
+
+Unlike **WHERE**, it is used after **GROUP BY**.
+
+### Example
+
+```sql
+SELECT Department,
+COUNT(*)
+FROM Employee
+GROUP BY Department
+HAVING COUNT(*) > 5;
+```
+
+Displays departments having more than five employees.
+
+---
+
+# WHERE vs HAVING
+
+| WHERE | HAVING |
+|---------|---------|
+| Filters rows before grouping | Filters groups after grouping |
+| Used without GROUP BY | Usually used with GROUP BY |
+
+---
+
+# INNER JOIN
+
+An **INNER JOIN** retrieves only the matching records from two tables.
+
+### Example
+
+Employee Table
+
+| ID | Name | Dept_ID |
+|----|------|---------|
+|1|John|101|
+|2|David|102|
+
+Department Table
+
+| Dept_ID | Department |
+|---------|------------|
+|101|IT|
+|102|HR|
+
+### Query
+
+```sql
+SELECT Employee.Name,
+Department.Department
+FROM Employee
+INNER JOIN Department
+ON Employee.Dept_ID = Department.Dept_ID;
+```
+
+### Result
+
+| Name | Department |
+|------|------------|
+|John|IT|
+|David|HR|
+
+---
+
+# Common SQL Commands
+
+| Command | Purpose |
+|----------|----------|
+| SELECT | Retrieve data |
+| INSERT | Add new records |
+| UPDATE | Modify existing records |
+| DELETE | Remove records |
+| WHERE | Filter rows |
+| GROUP BY | Group rows |
+| HAVING | Filter grouped data |
+| UNION | Combine results without duplicates |
+| UNION ALL | Combine results with duplicates |
+| INNER JOIN | Retrieve matching rows from multiple tables |
+
+---
+
+# Day 6 Summary
+
+- SQL stands for **Structured Query Language**.
+- **AND** returns rows when all conditions are true.
+- **OR** returns rows when any condition is true.
+- **NOT** excludes matching records.
+- **UNION** combines results and removes duplicates.
+- **UNION ALL** combines results and keeps duplicates.
+- **LIKE** is used for pattern matching with `_` and `%`.
+- **WHERE** filters individual rows.
+- **GROUP BY** groups similar records.
+- **HAVING** filters grouped results.
+- **INNER JOIN** returns matching records from two tables.
