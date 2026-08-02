@@ -1,0 +1,127 @@
+Day 7 Notes
+Cloud Computing, Instances & Containers
+Learning Objectives
+Understand cloud server resources
+Learn what an Instance is
+Understand Docker and Kubernetes
+Learn the concept of Containers
+Understand server specifications
+Server Specifications
+
+A cloud server is a virtual or physical machine that provides computing resources for running applications.
+
+Example Server Configuration
+CPU Cores: 64 Cores
+RAM: 128 GB
+Storage: 16 TB
+
+These resources determine the server's processing power, memory capacity, and storage space.
+
+What is an Instance?
+
+An Instance is a virtual machine (VM) running in the cloud.
+
+It provides:
+
+CPU
+Memory (RAM)
+Storage
+Network connectivity
+
+Each instance behaves like an independent computer where applications can be deployed and executed.
+
+Features
+Runs an operating system
+Can host applications
+Can be started, stopped, or restarted
+Scalable based on workload
+Docker
+
+Docker is a containerization platform used to package applications along with their dependencies into lightweight containers.
+
+Benefits
+Lightweight
+Fast deployment
+Consistent environment
+Easy portability
+Efficient resource usage
+Kubernetes
+
+Kubernetes (K8s) is a container orchestration platform used to manage multiple Docker containers.
+
+It helps in:
+
+Deploying containers
+Scaling applications
+Load balancing
+Monitoring container health
+Automatic recovery of failed containers
+Relationship Between Docker and Kubernetes
+Docker creates and runs containers.
+Kubernetes manages multiple containers across servers.
+Application
+      │
+      ▼
+Docker Container
+      │
+      ▼
+Kubernetes
+      │
+      ▼
+Cloud Server / Cluster
+What is a Container?
+
+A Container is a lightweight, isolated environment that packages:
+
+Application code
+Runtime
+Libraries
+Dependencies
+Configuration files
+
+Containers ensure that applications run the same way on every system.
+
+Characteristics
+Lightweight
+Portable
+Fast startup
+Shares the host operating system kernel
+Uses fewer resources than virtual machines
+Instance vs Container
+Instance	Container
+Virtual machine in the cloud	Lightweight application package
+Includes its own operating system	Shares the host operating system
+Uses more resources	Uses fewer resources
+Slower startup	Faster startup
+Runs multiple containers	Runs a single application or service
+Cloud Deployment Example
+
+A cloud server may have:
+
+64 CPU Cores
+128 GB RAM
+16 TB Storage
+
+On this server:
+
+Multiple Instances can be created.
+Each instance can run several Docker Containers.
+Kubernetes manages and coordinates all the containers.
+Key Terms
+Term	Description
+Cloud Server	Provides computing resources over the internet
+Instance	A virtual machine running in the cloud
+Docker	Tool used to create and run containers
+Kubernetes	Platform used to manage multiple containers
+Container	Lightweight package containing an application and its dependencies
+CPU Cores	Number of processing units available
+RAM	Temporary memory used during execution
+Storage	Permanent space used to store data and applications
+Day 7 Summary
+Cloud servers provide resources such as CPU, RAM, and Storage.
+Example server configuration: 64 Cores, 128 GB RAM, 16 TB Storage.
+An Instance is a virtual machine that runs applications in the cloud.
+Docker is used to create and run containers.
+Kubernetes manages multiple Docker containers.
+A Container packages an application with all its dependencies, ensuring consistent execution across environments.
+Containers are lightweight, portable, and faster than virtual machines.
