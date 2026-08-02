@@ -1,0 +1,364 @@
+Day-9
+Learning Objectives
+Understand Object-Oriented Programming (OOP)
+Learn the four pillars of OOP
+Understand Classes and Objects
+Learn Constructors
+Understand Method Overloading and Overriding
+Learn Encapsulation, Inheritance, Polymorphism, and Abstraction
+Understand the use of this, super, and final
+Learn Java Annotations
+What is OOP?
+
+Object-Oriented Programming (OOP) is a programming paradigm that organizes software around objects rather than functions.
+
+An object contains:
+
+Data (Attributes)
+Behavior (Methods)
+Advantages
+Code Reusability
+Easy Maintenance
+Security
+Flexibility
+Scalability
+Real-world Modeling
+Class
+
+A Class is a blueprint or template used to create objects.
+
+Example
+class Student{
+    int id;
+    String name;
+
+    void display(){
+        System.out.println(id + " " + name);
+    }
+}
+Object
+
+An Object is an instance of a class.
+
+Example
+Student s1 = new Student();
+
+s1.id = 101;
+s1.name = "Anekka";
+
+s1.display();
+Constructor
+
+A constructor is a special method that is automatically called when an object is created.
+
+Characteristics:
+
+Same name as class
+No return type
+Initializes object
+Default Constructor
+class Student{
+
+    Student(){
+        System.out.println("Object Created");
+    }
+}
+Parameterized Constructor
+class Student{
+
+    String name;
+
+    Student(String name){
+        this.name = name;
+    }
+}
+this Keyword
+
+this refers to the current object.
+
+Example
+class Student{
+
+    int id;
+
+    Student(int id){
+        this.id = id;
+    }
+}
+Inheritance
+
+Inheritance allows one class to acquire properties and methods of another class.
+
+Uses the extends keyword.
+
+Example
+class Animal{
+
+    void sound(){
+        System.out.println("Animal Sound");
+    }
+}
+
+class Dog extends Animal{
+
+    void bark(){
+        System.out.println("Bark");
+    }
+}
+Types of Inheritance
+Single Inheritance
+Multilevel Inheritance
+Hierarchical Inheritance
+
+(Java does not support Multiple Inheritance through classes.)
+
+super Keyword
+
+Used to access parent class methods and constructors.
+
+Example
+class Animal{
+
+    Animal(){
+        System.out.println("Animal Constructor");
+    }
+}
+
+class Dog extends Animal{
+
+    Dog(){
+        super();
+        System.out.println("Dog Constructor");
+    }
+}
+Polymorphism
+
+Polymorphism means one interface, many forms.
+
+Two Types:
+
+Compile-time Polymorphism
+Runtime Polymorphism
+Method Overloading (Compile-Time)
+
+Same method name but different parameters.
+
+Example
+class Calculator{
+
+    int add(int a,int b){
+        return a+b;
+    }
+
+    int add(int a,int b,int c){
+        return a+b+c;
+    }
+}
+Method Overriding (Runtime)
+
+Child class provides its own implementation of the parent class method.
+
+Example
+class Animal{
+
+    void sound(){
+        System.out.println("Animal");
+    }
+}
+
+class Dog extends Animal{
+
+    @Override
+    void sound(){
+        System.out.println("Bark");
+    }
+}
+Encapsulation
+
+Encapsulation means wrapping data and methods into a single unit.
+
+Use private variables and public getters/setters.
+
+Example
+class Employee{
+
+    private int salary;
+
+    public void setSalary(int salary){
+        this.salary = salary;
+    }
+
+    public int getSalary(){
+        return salary;
+    }
+}
+Advantages
+Data Hiding
+Better Security
+Easy Maintenance
+Abstraction
+
+Abstraction hides implementation details and shows only essential functionality.
+
+Can be achieved using:
+
+Abstract Class
+Interface
+Abstract Class
+abstract class Animal{
+
+    abstract void sound();
+}
+
+class Dog extends Animal{
+
+    void sound(){
+        System.out.println("Bark");
+    }
+}
+Interface
+
+An interface contains only abstract methods (before Java 8).
+
+Example
+interface Vehicle{
+
+    void start();
+}
+
+class Car implements Vehicle{
+
+    public void start(){
+        System.out.println("Car Started");
+    }
+}
+final Keyword
+
+The final keyword is used to restrict modification.
+
+Final Variable
+
+Cannot change value.
+
+final int age = 20;
+Final Method
+
+Cannot be overridden.
+
+final void display(){
+
+}
+Final Class
+
+Cannot be inherited.
+
+final class Student{
+
+}
+static Keyword
+
+Belongs to the class instead of objects.
+
+Example
+class Student{
+
+    static String college = "RMD";
+
+    String name;
+}
+Object Class Methods
+
+Some commonly used methods:
+
+toString()
+
+equals()
+
+hashCode()
+
+clone()
+Java Annotations
+
+Annotations provide metadata about Java code.
+
+They help the compiler and frameworks understand how the code should behave.
+
+1. @Override
+
+Indicates that a method overrides a parent class method.
+
+@Override
+public void display(){
+
+}
+Benefit
+Compiler checks whether overriding is correct.
+Prevents spelling mistakes.
+2. @Deprecated
+
+Marks a method or class as outdated.
+
+@Deprecated
+public void oldMethod(){
+
+}
+
+Compiler shows a warning when it is used.
+
+3. @SuppressWarnings
+
+Suppresses compiler warnings.
+
+@SuppressWarnings("unchecked")
+4. @FunctionalInterface
+
+Indicates an interface contains only one abstract method.
+
+@FunctionalInterface
+interface Demo{
+
+    void display();
+}
+
+Used in Lambda Expressions.
+
+5. @SafeVarargs
+
+Suppresses warnings related to variable arguments.
+
+@SafeVarargs
+
+OOP Pillars Summary
+Concept	Description
+Encapsulation	Hides data using private variables
+Inheritance	Reuses code from parent class
+Polymorphism	One method behaves differently
+Abstraction	Hides implementation details
+Difference Between Overloading and Overriding
+Method Overloading	Method Overriding
+Same method name	Same method name
+Different parameters	Same parameters
+Same class	Parent & Child classes
+Compile-time	Runtime
+Increases readability	Enables runtime polymorphism
+Difference Between Abstract Class and Interface
+Abstract Class	Interface
+Uses abstract keyword	Uses interface keyword
+Can have constructors	Cannot have constructors
+Can have normal methods	Mainly abstract methods (plus default/static methods in modern Java)
+Supports partial abstraction	Supports abstraction
+Difference Between Class and Object
+Class	Object
+Blueprint	Instance of a class
+No memory allocated	Memory allocated
+Logical entity	Physical entity
+Day Summary
+OOP organizes programs using objects and classes.
+A class is a blueprint, while an object is its instance.
+Constructors initialize objects.
+Inheritance enables code reuse.
+Encapsulation hides data using private fields.
+Polymorphism allows methods to have multiple forms through overloading and overriding.
+Abstraction hides implementation details using abstract classes and interfaces.
+The this, super, static, and final keywords provide important object-oriented features.
+Java annotations such as @Override, @Deprecated, and @FunctionalInterface improve code quality and readability.
