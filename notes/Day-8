@@ -1,0 +1,313 @@
+Day 8 Notes
+Java Advanced Concepts, Collections, File Handling & JDBC
+Learning Objectives
+Understand Java Exception Handling
+Learn the Java Collections Framework
+Understand Queue and Priority Queue
+Learn File Handling in Java
+Understand Multithreading
+Learn JDBC Database Connectivity
+Introduction to NoSQL Databases
+Understand Java Annotations
+Exception Handling
+
+Exception Handling prevents a program from terminating unexpectedly when runtime errors occur.
+
+try and catch
+try block contains code that may generate an exception.
+catch block handles the exception.
+Syntax
+try {
+    int result = 10 / 0;
+}
+catch (ArithmeticException e) {
+    System.out.println("Cannot divide by zero");
+}
+throw
+
+The throw keyword is used to explicitly throw an exception.
+
+Example
+if(age < 18){
+    throw new ArithmeticException("Not Eligible");
+}
+throws
+
+The throws keyword declares that a method may throw one or more exceptions.
+
+Example
+public void readFile() throws IOException{
+    // code
+}
+Java Collections Framework
+
+The Java Collections Framework provides classes and interfaces to store and manipulate groups of objects.
+
+ArrayList
+
+An ArrayList is a dynamic array.
+
+Features
+Fast random access/searching
+Maintains insertion order
+Allows duplicate elements
+Example
+ArrayList<String> list = new ArrayList<>();
+list.add("Java");
+list.add("Spring");
+LinkedList
+
+A LinkedList stores elements as nodes.
+
+Features
+Faster insertion and deletion
+Sequential access
+Dynamic size
+Example
+LinkedList<String> list = new LinkedList<>();
+HashSet
+
+A HashSet stores only unique elements.
+
+Features
+No duplicate values
+Unordered collection
+Fast lookup
+Example
+HashSet<Integer> set = new HashSet<>();
+set.add(10);
+set.add(20);
+HashMap
+
+A HashMap stores data as Key–Value pairs.
+
+Features
+Keys are unique
+Values may be duplicated
+Fast retrieval using keys
+Example
+HashMap<Integer,String> map = new HashMap<>();
+
+map.put(101,"John");
+map.put(102,"David");
+Queue
+
+A Queue follows the FIFO (First In First Out) principle.
+
+The element inserted first is removed first.
+
+Example
+Queue<Integer> queue = new LinkedList<>();
+
+queue.add(10);
+queue.add(20);
+
+queue.poll();
+Priority Queue
+
+A Priority Queue processes elements according to their priority rather than insertion order.
+
+Higher-priority elements are served first.
+
+Example
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+pq.add(50);
+pq.add(10);
+pq.add(30);
+
+Output order:
+
+10
+30
+50
+
+(Default: smallest element has highest priority.)
+
+File Handling
+
+Java provides classes to read and write files.
+
+Main operations:
+
+Read data from files
+Write data to files
+Append data
+Delete files
+Writing into a File
+import java.io.FileWriter;
+
+public class Demo {
+
+    public static void main(String[] args) throws Exception {
+
+        FileWriter writer = new FileWriter("sample.txt");
+
+        writer.write("Hello Infosys!");
+
+        writer.close();
+    }
+}
+Reading a File
+FileReader reader = new FileReader("sample.txt");
+Multithreading
+
+Multithreading allows multiple tasks to execute simultaneously.
+
+Advantages
+Faster execution
+Better CPU utilization
+Improved responsiveness
+Example
+Thread t = new Thread();
+
+t.start();
+JDBC (Java Database Connectivity)
+
+JDBC allows Java applications to communicate with relational databases.
+
+Steps
+Load Driver
+Establish Connection
+Create Statement
+Execute Query
+Close Connection
+JDBC Connection Example
+Connection con = DriverManager.getConnection(
+    "jdbc:mysql://localhost:3306/company",
+    "root",
+    "password"
+);
+SQL Database vs NoSQL Database
+SQL Database
+Structured data
+Uses tables
+Fixed schema
+Example:
+MySQL
+Oracle
+PostgreSQL
+NoSQL Database
+Unstructured or semi-structured data
+Flexible schema
+Stores JSON-like documents
+
+Examples:
+
+MongoDB
+Cassandra
+Firebase
+Java Annotations
+
+Annotations provide metadata to the compiler or runtime.
+
+They help reduce configuration and improve code readability.
+
+Common Java Annotations
+1. @Override
+
+Indicates that a method overrides a superclass method.
+
+@Override
+public void display() {
+
+}
+2. @Deprecated
+
+Marks a method or class as obsolete.
+
+@Deprecated
+public void oldMethod(){
+
+}
+3. @SuppressWarnings
+
+Suppresses compiler warnings.
+
+@SuppressWarnings("unchecked")
+4. @FunctionalInterface
+
+Declares that an interface contains exactly one abstract method.
+
+@FunctionalInterface
+interface Demo{
+
+    void show();
+}
+5. Spring Boot Annotations (Commonly Used)
+@Component
+
+Marks a class as a Spring-managed component.
+
+@Component
+public class StudentService{
+
+}
+@Service
+
+Represents the business logic layer.
+
+@Service
+public class EmployeeService{
+
+}
+@Repository
+
+Represents the data access layer.
+
+@Repository
+public class EmployeeRepository{
+
+}
+@Controller
+
+Handles web requests.
+
+@Controller
+public class HomeController{
+
+}
+@RestController
+
+Creates REST APIs.
+
+@RestController
+public class StudentController{
+
+}
+@Autowired
+
+Automatically injects required dependencies.
+
+@Autowired
+private StudentService service;
+@RequestMapping
+
+Maps HTTP requests to controller methods.
+
+@RequestMapping("/students")
+@GetMapping
+
+Handles GET requests.
+
+@GetMapping("/{id}")
+@PostMapping
+
+Handles POST requests.
+
+@PostMapping
+Day 8 Summary
+try-catch handles runtime exceptions.
+throw explicitly throws an exception.
+throws declares possible exceptions.
+ArrayList provides fast searching and random access.
+LinkedList is efficient for insertion and deletion.
+HashSet stores unique elements.
+HashMap stores key-value pairs.
+Queue follows FIFO order.
+Priority Queue processes elements based on priority.
+File Handling is used to read and write files.
+Multithreading executes multiple tasks simultaneously.
+JDBC connects Java applications with databases.
+NoSQL databases store flexible, JSON-like data.
+Annotations simplify Java and Spring Boot development by providing metadata and reducing configuration.
